@@ -1,4 +1,4 @@
-package com.threedots.projectx.ui
+package com.threedots.projectx.ui.auth
 
 import android.os.Bundle
 import android.view.View
@@ -11,7 +11,7 @@ class RegisterFragment : Fragment(R.layout.fragment_register) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         login_button.setOnClickListener {
-            fragmentManager!!.popBackStack()
+            parentFragmentManager.popBackStack()
         }
     }
 

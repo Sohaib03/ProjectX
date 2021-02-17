@@ -1,4 +1,4 @@
-package com.threedots.projectx.ui
+package com.threedots.projectx.ui.auth
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
