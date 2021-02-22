@@ -76,7 +76,6 @@ class LoginFragment : Fragment(), AuthListener {
                 requireContext().toast(jsonObject.getString("error"))
             } else if (jsonObject.has("access_token")) {
                 requireContext().toast(jsonObject.getString("access_token"))
-                val intent = Intent(requireContext(), HomeActivity::class.java)
                 GlobalScope.launch {
                     Log.i("TOKEN", "onSuccess: " + jsonObject.getString("access_token"))
                     UserRepository(requireActivity().applicationContext).nukeTable()
@@ -87,6 +86,7 @@ class LoginFragment : Fragment(), AuthListener {
                         )
                     )
                 }
+                val intent = Intent(requireContext(), HomeActivity::class.java)
                 startActivity(intent)
             } else {
                 requireContext().toast("An error has occured")
