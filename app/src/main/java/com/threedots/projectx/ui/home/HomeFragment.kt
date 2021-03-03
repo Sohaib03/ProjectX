@@ -11,6 +11,7 @@ import com.threedots.projectx.data.entities.QuestionSet
 import com.threedots.projectx.data.entities.User
 import com.threedots.projectx.data.repositories.QuestionRepository
 import com.threedots.projectx.data.repositories.UserRepository
+import com.threedots.projectx.ui.auth.RegisterFragment
 import com.threedots.projectx.util.toast
 import kotlinx.android.synthetic.main.fragment_home.*
 
@@ -25,6 +26,13 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
                 getQuestion(user.user_access_token)
             }
         })
+        createButton.setOnClickListener {
+
+            var transaction = parentFragmentManager.beginTransaction()
+            transaction.replace(R.id.home_frame_layout, CreateQuestionFragement(), "createQuestionFragment")
+            transaction.addToBackStack(null)
+            transaction.commit()
+        }
     }
     fun postQuestion(accessToken: String) {
         var question = Question("How ?", 1, mutableListOf("Option 1", "Option 2", "Option 3", "Option 4"))

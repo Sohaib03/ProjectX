@@ -3,6 +3,7 @@ package com.threedots.projectx.data.repositories
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import com.google.gson.JsonObject
 import com.threedots.projectx.data.entities.Question
 import com.threedots.projectx.data.entities.QuestionSet
 import com.threedots.projectx.data.network.Api
@@ -59,5 +60,9 @@ class QuestionRepository {
 
             })
         return feedbackResponse
+    }
+
+    fun parseQuestionSet(questionString : String) : QuestionSet{
+        return QuestionSet(0, mutableListOf<Question>())
     }
 }
